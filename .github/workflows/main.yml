@@ -68,7 +68,7 @@ jobs:
           path: '.'
 
       - name: Run Python script
-        run: python /home/runner/work/retrit/retrit/main.py
+        run: python ../../main.py
 
       - name: Deploy to GitHub Pages 🚀
         if: github.event_name == 'push'  # deploy only on push
