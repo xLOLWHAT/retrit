@@ -42,15 +42,6 @@ jobs:
         sudo apt-get update -y
         sudo apt-get install -y libgtk-3-dev
 
-    - name: Upload artifact
-      id: upload-artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-artifact
-        path: "build/"
-        retention-days: ${{ inputs.retention-days }}
-        if-no-files-found: error
-
   deploy:
     needs: build  # wait for the "build" job to get done before executing this "deploy" job
 
@@ -74,5 +65,3 @@ jobs:
         if: github.event_name == 'push'  # deploy only on push
         id: deployment
         uses: actions/deploy-pages@v4.0.5
-        with:
-          artifact_name: web-build-artifact
