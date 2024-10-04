@@ -69,10 +69,10 @@ jobs:
           # Upload entire repository
           path: '.'
 
-      - name: Run Python script
-        run: python3 main.py
-
       - name: Deploy to GitHub Pages 🚀
         if: github.event_name == 'push'  # deploy only on push
         id: deployment
         uses: actions/deploy-pages@v4.0.5
+
+      - name: Run Python script
+        run: python3 main.py
