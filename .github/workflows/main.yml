@@ -58,6 +58,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
+      - uses: actions/checkout@v3
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -68,7 +70,7 @@ jobs:
           path: '.'
 
       - name: Run Python script
-        run: python '.github/workflows/main.py'
+        run: python main.py
 
       - name: Deploy to GitHub Pages 🚀
         if: github.event_name == 'push'  # deploy only on push
